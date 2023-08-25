@@ -19,11 +19,12 @@ class MainActivity : AppCompatActivity() {
         println("MainActivity.onCreate")
         setContentView(binding.root)
 
-
         binding.btValidate.setOnClickListener {
 
             //Envoie
-            val intent = Intent(this, WeatherActivity::class.java)
+            //val intent = Intent(this, WeatherActivity::class.java)
+            val intent = Intent(this, ExoNavGraphActivity::class.java)
+
             startActivity(intent)
 
 //            if (binding.rbLike.isChecked) {
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        println("MainActivity.onStart")
+        binding.et.setText(getString(R.string.l_cran_est_visible, "10h"))
     }
 
     override fun onStop() {

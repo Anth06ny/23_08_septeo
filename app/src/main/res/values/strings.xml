@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">23_08_septeo</string>
+    <string name="tvStart" translatable="false">-</string>
+    <string name="l_cran_est_visible">L\'écran est visible à %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

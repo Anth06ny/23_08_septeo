@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">23_08_septeo</string>
+    <string name="l_cran_est_visible">Screen start at %1$s</string>
+</resources>
