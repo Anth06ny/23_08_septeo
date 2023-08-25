@@ -8,8 +8,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.MenuProvider
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.amonteiro.a23_08_septeo.databinding.FragmentScreen12Binding
 
@@ -28,7 +31,7 @@ class Screen12Fragment : Fragment(), MenuProvider {
     private var _binding: FragmentScreen12Binding? = null
     private val binding get() = _binding!!
 
-    //val model by lazy { ViewModelProvider(this)[Screen12BindingViewModel::class.java] }
+    val model by lazy { ViewModelProvider(requireActivity())[ExoNavGraphViewModel::class.java] }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +44,16 @@ class Screen12Fragment : Fragment(), MenuProvider {
         //Menu
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
+        model.texte.observe(viewLifecycleOwner) {
+            binding.editTextText2.setText(it)
+        }
+
         return binding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        model.changeTexte(binding.editTextText2.text.toString())
     }
 
     override fun onDestroyView() {
